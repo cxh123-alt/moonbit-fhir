@@ -1,0 +1,7 @@
+import {
+  "2515050243qyf/moonbit-fhir" @fhir,
+  "moonbitlang/core/env",
+  "moonbitlang/core/json",
+}
+
+pkgtype(kind: "executable")
