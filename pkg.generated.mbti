@@ -1,0 +1,124 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "2515050243qyf/moonbit-fhir"
+
+import {
+  "moonbitlang/core/debug",
+}
+
+// Values
+pub fn bundle_entries(Json) -> Array[BundleEntry]
+
+pub fn bundle_resource_count(Json) -> Int
+
+pub fn diagnostic_report_summary(Json) -> DiagnosticReportSummary
+
+pub fn encounter_summary(Json) -> EncounterSummary
+
+pub fn example_bundle_json() -> String
+
+pub fn example_observation_json() -> String
+
+pub fn example_patient_json() -> String
+
+pub fn is_supported_resource(Json) -> Bool
+
+pub fn is_valid(Json, version? : FhirVersion) -> Bool
+
+pub fn json_pointer(Json, String) -> Json?
+
+pub fn medication_summary(Json) -> MedicationSummary
+
+pub fn observation_csv_row(Json) -> String
+
+pub fn observation_summary(Json) -> ObservationSummary
+
+pub fn parse_json(String) -> Json?
+
+pub fn patient_summary(Json) -> PatientSummary
+
+pub fn resource_kind(Json) -> ResourceKind
+
+pub fn resource_type(Json) -> String?
+
+pub fn validate_resource(Json, version? : FhirVersion) -> ValidationReport
+
+// Errors
+
+// Types and methods
+pub(all) struct BundleEntry {
+  full_url : String?
+  resource_type : String
+  id : String?
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct DiagnosticReportSummary {
+  id : String?
+  status : String?
+  code_text : String?
+  subject : String?
+  result_count : Int
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct EncounterSummary {
+  id : String?
+  status : String?
+  class_code : String?
+  subject : String?
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) enum FhirVersion {
+  R4
+  R5
+} derive(Eq, ToJson, @debug.Debug)
+pub fn FhirVersion::to_string(Self) -> String
+
+pub(all) struct Issue {
+  path : String
+  code : String
+  message : String
+  severity : String
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct MedicationSummary {
+  id : String?
+  code_text : String?
+  status : String?
+  form_text : String?
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct ObservationSummary {
+  id : String?
+  status : String?
+  code_text : String?
+  subject : String?
+  value : String?
+  issued : String?
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct PatientSummary {
+  id : String?
+  display_name : String?
+  gender : String?
+  birth_date : String?
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) enum ResourceKind {
+  Patient
+  Observation
+  Medication
+  DiagnosticReport
+  Encounter
+  Bundle
+  Other(String)
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct ValidationReport {
+  resource_type : String
+  version : FhirVersion
+  issues : Array[Issue]
+} derive(Eq, ToJson, @debug.Debug)
+
+// Type aliases
+
+// Traits
+
