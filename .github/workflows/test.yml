@@ -1,0 +1,56 @@
+name: Test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  moonbit:
+    name: MoonBit (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup MoonBit (Unix)
+        if: runner.os != 'Windows'
+        shell: bash
+        run: |
+          curl -fsSL https://cli.moonbitlang.com/install/unix.sh | bash
+          echo "$HOME/.moon/bin" >> "$GITHUB_PATH"
+
+      - name: Setup MoonBit (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+          irm https://cli.moonbitlang.com/install/powershell.ps1 | iex
+          "$HOME/.moon/bin" | Out-File -FilePath $env:GITHUB_PATH -Append
+
+      - name: Toolchain
+        run: moon version
+
+      - name: Format
+        run: moon fmt --check
+
+      - name: Check
+        run: moon check --deny-warn
+
+      - name: Test
+        run: moon test --deny-warn
+
+      - name: Info
+        run: |
+          moon info
+          git diff --exit-code
+
+      - name: CLI smoke test
+        run: |
+          moon run cmd/main -- --example patient
+          moon run cmd/main -- --example observation
+          moon run cmd/main -- --example bundle
