@@ -31,6 +31,14 @@ Validate an inline resource:
 moon run cmd/main -- --json '{"resourceType":"Observation","status":"final","code":{"text":"heart rate"}}'
 ```
 
+Use the library from another MoonBit module:
+
+```bash
+moon add cxh123-alt/moonbit-fhir@0.2.0
+```
+
+Then import the package and call the validation, query, batch, and export APIs shown below.
+
 ## CLI
 
 The `fhir-validate` example CLI is dependency-free and useful for smoke tests and small pipelines:
