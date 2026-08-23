@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "2515050243qyf/moonbit-fhir/cmd/main"
+package "cxh123-alt/moonbit-fhir/cmd/main"
 
 // Values
 
@@ -10,4 +10,3 @@ package "2515050243qyf/moonbit-fhir/cmd/main"
 // Type aliases
 
 // Traits
-

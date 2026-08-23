@@ -9,7 +9,7 @@
 
 ## Ecosystem Overlap Check
 
-Searches on mooncakes.io and public web search for `FHIR`, `healthcare`, `medical`, `json pointer`, and adjacent MoonBit package names did not show a mature MoonBit FHIR toolkit with the same scope at the time this repository was prepared.
+The package is intentionally focused on a MoonBit-native FHIR processing layer. It does not vendor HL7 implementation code or generated StructureDefinitions; it composes general JSON operations with standards-derived resource and field rules.
 
 Nearby ecosystem packages exist for JSON handling and generic tooling, but this project's healthcare-specific resource validation, Bundle parsing, summaries, and CLI are implemented as a dedicated package.
 
@@ -19,10 +19,10 @@ This repository contains original MoonBit source code for:
 
 - FHIR resource kind detection.
 - R4/R5 validation report modeling.
-- First-pass validators for Patient, Observation, Medication, DiagnosticReport, Encounter, and Bundle.
-- JSON Pointer traversal.
-- Resource summary extraction and a lightweight Observation CSV row converter.
-- Example payloads and CLI entry point.
+- Validators and summaries for clinical, workflow, identity, administrative, and Bundle resources.
+- JSON Pointer and FHIRPath-inspired path traversal.
+- NDJSON, profile, terminology, date, quality, privacy, and export helpers.
+- Deterministic fixtures, benchmark scenarios, boundary tests, and CLI entry points.
 
 The FHIR names, resource names, and general JSON representation rules are standards facts from HL7. No HL7 source code or generated schemas are vendored in this repository.
 
@@ -30,5 +30,6 @@ The FHIR names, resource names, and general JSON representation rules are standa
 
 - It is not yet a complete StructureDefinition validator.
 - Terminology bindings are checked only with small common value sets.
-- XML, RDF, NDJSON, and profile-specific validation are planned future work.
+- XML and RDF are outside the current JSON-focused scope.
+- Profile-specific validation uses local rules; generated StructureDefinition support is planned.
 - Decimal precision is preserved according to the underlying MoonBit JSON parser behavior; high-precision clinical decimal handling is a future extension.

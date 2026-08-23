@@ -123,6 +123,208 @@ fn validate_medication(issues : Array[Issue], value : Json) -> Unit {
 }
 
 ///|
+fn validate_medication_request(issues : Array[Issue], value : Json) -> Unit {
+  require_string(issues, value, "status", "/status")
+  match object_get(value, "medicationCodeableConcept") {
+    Some(Object(_)) | None => ()
+    Some(_) =>
+      issues.push(
+        issue(
+          "/medicationCodeableConcept", "type", "MedicationRequest.medicationCodeableConcept must be an object",
+        ),
+      )
+  }
+  match field_string(value, "status") {
+    Some(
+      "active"
+      | "on-hold"
+      | "cancelled"
+      | "completed"
+      | "entered-in-error"
+      | "stopped"
+      | "draft"
+      | "unknown"
+    )
+    | None => ()
+    Some(_) =>
+      issues.push(
+        issue(
+          "/status",
+          "value",
+          "MedicationRequest.status is outside the common FHIR value set",
+          severity="warning",
+        ),
+      )
+  }
+}
+
+///|
+fn validate_condition(issues : Array[Issue], value : Json) -> Unit {
+  match object_get(value, "clinicalStatus") {
+    Some(Object(_)) | None => ()
+    Some(_) =>
+      issues.push(
+        issue(
+          "/clinicalStatus", "type", "Condition.clinicalStatus must be an object",
+        ),
+      )
+  }
+  match object_get(value, "code") {
+    Some(Object(_)) => ()
+    Some(_) =>
+      issues.push(issue("/code", "type", "Condition.code must be an object"))
+    None =>
+      issues.push(issue("/code", "required", "Condition.code is required"))
+  }
+}
+
+///|
+fn validate_procedure(issues : Array[Issue], value : Json) -> Unit {
+  require_string(issues, value, "status", "/status")
+  match object_get(value, "code") {
+    Some(Object(_)) => ()
+    Some(_) =>
+      issues.push(issue("/code", "type", "Procedure.code must be an object"))
+    None =>
+      issues.push(issue("/code", "required", "Procedure.code is required"))
+  }
+}
+
+///|
+fn validate_immunization(issues : Array[Issue], value : Json) -> Unit {
+  require_string(issues, value, "status", "/status")
+  match object_get(value, "vaccineCode") {
+    Some(Object(_)) => ()
+    Some(_) =>
+      issues.push(
+        issue(
+          "/vaccineCode", "type", "Immunization.vaccineCode must be an object",
+        ),
+      )
+    None =>
+      issues.push(
+        issue(
+          "/vaccineCode", "required", "Immunization.vaccineCode is required",
+        ),
+      )
+  }
+}
+
+///|
+fn validate_allergy_intolerance(issues : Array[Issue], value : Json) -> Unit {
+  match field_string(value, "clinicalStatus") {
+    Some(_) | None => ()
+  }
+  match object_get(value, "code") {
+    Some(Object(_)) => ()
+    Some(_) =>
+      issues.push(
+        issue("/code", "type", "AllergyIntolerance.code must be an object"),
+      )
+    None =>
+      issues.push(
+        issue("/code", "required", "AllergyIntolerance.code is required"),
+      )
+  }
+}
+
+///|
+fn validate_care_plan(issues : Array[Issue], value : Json) -> Unit {
+  require_string(issues, value, "status", "/status")
+  require_string(issues, value, "intent", "/intent")
+}
+
+///|
+fn validate_identity_resource(issues : Array[Issue], value : Json) -> Unit {
+  match resource_kind(value) {
+    Organization | Location | Practitioner =>
+      match field_string(value, "name") {
+        Some(name) =>
+          if name == "" {
+            issues.push(issue("/name", "empty", "name must not be empty"))
+          }
+        None => ()
+      }
+    _ => ()
+  }
+}
+
+///|
+fn validate_workflow_resource(issues : Array[Issue], value : Json) -> Unit {
+  match resource_kind(value) {
+    ServiceRequest => {
+      require_string(issues, value, "status", "/status")
+      require_string(issues, value, "intent", "/intent")
+      match object_get(value, "code") {
+        Some(Object(_)) | None => ()
+        Some(_) =>
+          issues.push(
+            issue("/code", "type", "ServiceRequest.code must be an object"),
+          )
+      }
+    }
+    Goal => {
+      require_string(issues, value, "lifecycleStatus", "/lifecycleStatus")
+      match object_get(value, "description") {
+        Some(Object(_)) | None => ()
+        Some(_) =>
+          issues.push(
+            issue("/description", "type", "Goal.description must be an object"),
+          )
+      }
+    }
+    CareTeam => {
+      require_string(issues, value, "status", "/status")
+      require_array(issues, value, "participant", "/participant")
+    }
+    Device =>
+      match object_get(value, "type") {
+        Some(Object(_)) | None => ()
+        Some(_) =>
+          issues.push(issue("/type", "type", "Device.type must be an object"))
+      }
+    Specimen =>
+      match object_get(value, "type") {
+        Some(Object(_)) | None => ()
+        Some(_) =>
+          issues.push(issue("/type", "type", "Specimen.type must be an object"))
+      }
+    Questionnaire => require_string(issues, value, "status", "/status")
+    List => {
+      require_string(issues, value, "status", "/status")
+      require_string(issues, value, "mode", "/mode")
+    }
+    Composition => {
+      require_string(issues, value, "status", "/status")
+      match object_get(value, "type") {
+        Some(Object(_)) => ()
+        Some(_) =>
+          issues.push(
+            issue(
+              "/type", "required", "Composition.type is required and must be an object",
+            ),
+          )
+        None =>
+          issues.push(
+            issue("/type", "required", "Composition.type is required"),
+          )
+      }
+    }
+    DocumentReference => require_string(issues, value, "status", "/status")
+    Provenance => require_array(issues, value, "agent", "/agent")
+    AuditEvent =>
+      match object_get(value, "type") {
+        Some(Object(_)) => ()
+        Some(_) =>
+          issues.push(issue("/type", "required", "AuditEvent.type is required"))
+        None =>
+          issues.push(issue("/type", "required", "AuditEvent.type is required"))
+      }
+    _ => ()
+  }
+}
+
+///|
 fn validate_diagnostic_report(issues : Array[Issue], value : Json) -> Unit {
   require_string(issues, value, "status", "/status")
   match object_get(value, "code") {
@@ -202,8 +404,27 @@ pub fn validate_resource(
     Patient => validate_patient(issues, value)
     Observation => validate_observation(issues, value)
     Medication => validate_medication(issues, value)
+    MedicationRequest => validate_medication_request(issues, value)
     DiagnosticReport => validate_diagnostic_report(issues, value)
     Encounter => validate_encounter(issues, value)
+    Condition => validate_condition(issues, value)
+    Procedure => validate_procedure(issues, value)
+    Immunization => validate_immunization(issues, value)
+    AllergyIntolerance => validate_allergy_intolerance(issues, value)
+    CarePlan => validate_care_plan(issues, value)
+    Practitioner | Organization | Location =>
+      validate_identity_resource(issues, value)
+    ServiceRequest
+    | Goal
+    | CareTeam
+    | Device
+    | Specimen
+    | Questionnaire
+    | List
+    | Composition
+    | DocumentReference
+    | Provenance
+    | AuditEvent => validate_workflow_resource(issues, value)
     Bundle => validate_bundle(issues, value)
     Other(name) =>
       if name.length() > 0 {

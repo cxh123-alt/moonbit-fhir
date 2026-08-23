@@ -1,16 +1,316 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "2515050243qyf/moonbit-fhir"
+package "cxh123-alt/moonbit-fhir"
 
 import {
   "moonbitlang/core/debug",
 }
 
 // Values
+pub fn address_display(Json, Int) -> String
+
+pub fn address_lines(Json) -> Array[String]
+
+pub fn all_references_resolve(Array[Json]) -> Bool
+
+pub fn allergy_intolerance_summary(Json) -> AllergyIntoleranceSummary
+
+pub fn analyze_bundle(Json) -> BundleAnalytics
+
+pub fn apply_resource_patch(Json, ResourcePatch) -> Json
+
+pub fn apply_resource_patches(Json, Array[ResourcePatch]) -> Json
+
+pub fn audit_event_agents(Json) -> Array[String]
+
+pub fn audit_event_entities(Json) -> Array[String]
+
+pub fn audit_event_summary(Json) -> CommonResourceSummary
+
+pub fn batch_is_acceptable(Array[Json]) -> Bool
+
+pub fn batch_issue_histogram(Array[Json]) -> Map[String, Int]
+
+pub fn batch_metrics(Array[Json]) -> Array[ResourceMetrics]
+
+pub fn batch_quality(Array[Json]) -> BatchQuality
+
+pub fn batch_quality_findings(Array[Json]) -> Array[QualityFinding]
+
+pub fn batch_quality_score(Array[Json]) -> Int
+
+pub fn batch_quality_score_average(Array[Json]) -> Int
+
+pub fn batch_quality_text(String) -> String
+
+pub fn batch_type_histogram(Array[Json]) -> Map[String, Int]
+
+pub fn benchmark_bundle(Int) -> Json
+
+pub fn benchmark_bundle_analysis(Int) -> BenchmarkObservation
+
+pub fn benchmark_case_bundle(Int) -> BenchmarkCase
+
+pub fn benchmark_case_matrix() -> Array[BenchmarkCase]
+
+pub fn benchmark_case_ndjson(Int) -> BenchmarkCase
+
+pub fn benchmark_case_search(Int) -> BenchmarkCase
+
+pub fn benchmark_case_single() -> BenchmarkCase
+
+pub fn benchmark_case_summary(BenchmarkCase) -> String
+
+pub fn benchmark_expected_bundle_count(Int) -> Int
+
+pub fn benchmark_expected_ndjson_count(Int) -> Int
+
+pub fn benchmark_expected_search_count(Int) -> Int
+
+pub fn benchmark_expected_validation_count(Int) -> Int
+
+pub fn benchmark_matrix_is_nonempty() -> Bool
+
+pub fn benchmark_matrix_summary() -> Array[String]
+
+pub fn benchmark_mixed_ndjson(Int) -> String
+
+pub fn benchmark_ndjson(Int) -> String
+
+pub fn benchmark_ndjson_validation(Int) -> BenchmarkObservation
+
+pub fn benchmark_observation(Int) -> Json
+
+pub fn benchmark_observation_validation(Int) -> BenchmarkObservation
+
+pub fn benchmark_observations(Int) -> Array[Json]
+
+pub fn benchmark_patient(Int) -> Json
+
+pub fn benchmark_scenario_csv() -> String
+
+pub fn benchmark_scenario_rows() -> Array[String]
+
+pub fn benchmark_scenario_summary() -> String
+
+pub fn benchmark_scenarios() -> Array[BenchmarkObservation]
+
+pub fn benchmark_search_scan(Int) -> BenchmarkObservation
+
+pub fn benchmark_text(Int) -> String
+
+pub fn bulk_all_chunks_valid(Array[Json], Int) -> Bool
+
+pub fn bulk_chunk_count(Array[Json], Int) -> Int
+
+pub fn bulk_chunk_sizes(Array[Json], Int) -> Array[Int]
+
+pub fn bulk_from_ndjson(String) -> Array[Json]
+
+pub fn bulk_merge_ndjson(Array[String]) -> String
+
+pub fn bulk_partition_by_type(Array[Json]) -> Map[String, Array[Json]]
+
+pub fn bulk_summary(Array[Json], Int) -> String
+
+pub fn bulk_to_json(Array[Json]) -> String
+
+pub fn bulk_to_ndjson(Array[Json]) -> String
+
+pub fn bulk_unique_ids(Array[Json]) -> Array[String]
+
+pub fn bulk_validate_chunks(Array[Json], Int) -> Array[BatchQuality]
+
+pub fn bundle_analytics_summary(Json) -> String
+
+pub fn bundle_csv_text(String) -> String?
+
+pub fn bundle_dangling_references(Json) -> Array[String]
+
+pub fn bundle_duplicate_count(Json) -> Int
+
+pub fn bundle_empty(Json) -> Bool
+
 pub fn bundle_entries(Json) -> Array[BundleEntry]
+
+pub fn bundle_entry_count_by_type(Json) -> Map[String, Int]
+
+pub fn bundle_entry_csv(Json) -> String
+
+pub fn bundle_entry_ndjson(Json) -> String
+
+pub fn bundle_entry_references(Json) -> Array[String]
+
+pub fn bundle_filter_kind(Json, ResourceKind) -> Array[Json]
+
+pub fn bundle_filter_valid(Json) -> Array[Json]
+
+pub fn bundle_graph(Json) -> BundleGraph
+
+pub fn bundle_graph_degree(Json, String) -> (Int, Int)
+
+pub fn bundle_graph_edges(Json) -> Array[GraphEdge]
+
+pub fn bundle_graph_is_acyclic(Json) -> Bool
+
+pub fn bundle_graph_node_keys(Json) -> Array[String]
+
+pub fn bundle_graph_summary(Json) -> String
+
+pub fn bundle_graph_text(String) -> String?
+
+pub fn bundle_has_duplicate_ids(Json) -> Bool
+
+pub fn bundle_has_resource_type(Json, String) -> Bool
+
+pub fn bundle_incoming_references(Json, String) -> Array[String]
+
+pub fn bundle_is_consistent(Json) -> Bool
+
+pub fn bundle_issue_codes(Json) -> Array[String]
+
+pub fn bundle_outgoing_references(Json, String) -> Array[String]
+
+pub fn bundle_page(Json, Int, Int) -> Array[Json]
+
+pub fn bundle_payload_size(Json) -> Int
+
+pub fn bundle_quality_score(Json) -> Int
+
+pub fn bundle_rebuild(Json, Array[Json]) -> Json
+
+pub fn bundle_reference_count(Json) -> Int
+
+pub fn bundle_reference_histogram(Json) -> Map[String, Int]
+
+pub fn bundle_resource_at(Json, Int) -> Json?
 
 pub fn bundle_resource_count(Json) -> Int
 
+pub fn bundle_resource_ids(Json) -> Array[String]
+
+pub fn bundle_resource_type_list(Json) -> Array[String]
+
+pub fn bundle_resources(Json) -> Array[Json]
+
+pub fn bundle_status_summary(Json) -> String
+
+pub fn bundle_structure_is_valid(Json) -> Bool
+
+pub fn bundle_type_count(Json, String) -> Int
+
+pub fn bundle_type_summary(Json) -> String
+
+pub fn bundle_validate_and_filter(Json) -> (BundleValidation, Json)
+
+pub fn bundle_without_invalid(Json) -> Json
+
+pub fn canonical_json(Json, indent? : Int) -> String
+
+pub fn canonical_resource(Json) -> Json
+
+pub fn canonicalize_json_text(String) -> String?
+
+pub fn care_plan_summary(Json) -> CarePlanSummary
+
+pub fn care_team_summary(Json) -> CommonResourceSummary
+
+pub fn chunk_resources(Array[Json], Int) -> Array[BulkChunk]
+
+pub fn classify_field(PrivacyPolicy, String) -> Sensitivity
+
+pub fn codeable_codes(Json) -> Array[String]
+
+pub fn codeable_codings(Json) -> Array[CodingRecord]
+
+pub fn codeable_displays(Json) -> Array[String]
+
+pub fn codeable_find_code(Json, String) -> String?
+
+pub fn codeable_has_code(Json, String) -> Bool
+
+pub fn codeable_has_system_code(Json, String, String) -> Bool
+
+pub fn codeable_is_empty(Json) -> Bool
+
+pub fn codeable_merge(Json, Json) -> Json
+
+pub fn codeable_primary_display(Json) -> String?
+
+pub fn codeable_summary(Json) -> String
+
+pub fn codeable_systems(Json) -> Array[String]
+
+pub fn coding_record(Json) -> CodingRecord
+
+pub fn common_condition_status() -> ValueSet
+
+pub fn common_encounter_status() -> ValueSet
+
+pub fn common_medication_status() -> ValueSet
+
+pub fn common_observation_constraints() -> ConstraintSet
+
+pub fn common_observation_status() -> ValueSet
+
+pub fn common_patient_constraints() -> ConstraintSet
+
+pub fn common_resource_summary(Json) -> CommonResourceSummary
+
+pub fn compare_fhir_dates(String, String) -> Int?
+
+pub fn compare_reports(ValidationReport, ValidationReport) -> ReportDelta
+
+pub fn complete_quality_is_valid(Json, Array[Json]) -> Bool
+
+pub fn complete_quality_report(Json, Array[Json]) -> ValidationReport
+
+pub fn composition_summary(Json) -> CommonResourceSummary
+
+pub fn condition_summary(Json) -> ConditionSummary
+
+pub fn constraint_count(ConstraintSet) -> Int
+
+pub fn constraints_are_valid(Json, ConstraintSet) -> Bool
+
+pub fn constraints_summary(ConstraintSet) -> String
+
+pub fn contact_point_values(Json) -> Array[String]
+
+pub fn csv_escape(String) -> String
+
+pub fn csv_row(Array[String]) -> String
+
+pub fn date_day(String) -> Int?
+
+pub fn date_inputs_are_valid(Array[String]) -> Bool
+
+pub fn date_is_after(String, String) -> Bool
+
+pub fn date_is_before(String, String) -> Bool
+
+pub fn date_is_equal(String, String) -> Bool
+
+pub fn date_month(String) -> Int?
+
+pub fn date_precision(String) -> DatePrecision
+
+pub fn date_precision_name(String) -> String
+
+pub fn date_range_label(String, String) -> String
+
+pub fn date_year(String) -> Int?
+
+pub fn default_terminology_catalog() -> TerminologyCatalog
+
+pub fn delete_resource(Array[Json], String, String) -> Array[Json]
+
+pub fn device_summary(Json) -> CommonResourceSummary
+
 pub fn diagnostic_report_summary(Json) -> DiagnosticReportSummary
+
+pub fn distinct_path_strings(Json, String) -> Array[String]
+
+pub fn document_reference_summary(Json) -> CommonResourceSummary
 
 pub fn encounter_summary(Json) -> EncounterSummary
 
@@ -20,35 +320,882 @@ pub fn example_observation_json() -> String
 
 pub fn example_patient_json() -> String
 
+pub fn export_bundle(Json, ExportOptions) -> String
+
+pub fn export_format_name(ExportFormat) -> String
+
+pub fn export_is_reproducible(Array[Json], ExportOptions) -> Bool
+
+pub fn export_line_count(String) -> Int
+
+pub fn export_options_redacted(ExportOptions) -> ExportOptions
+
+pub fn export_resources(Array[Json], ExportOptions) -> String
+
+pub fn export_round_trip_ndjson(String) -> NdjsonReport
+
+pub fn export_summary(Array[Json], ExportOptions) -> String
+
+pub fn filter_invalid_resources(Array[Json]) -> Array[Json]
+
+pub fn filter_resources_by_kind(Array[Json], ResourceKind) -> Array[Json]
+
+pub fn filter_valid_resources(Array[Json]) -> Array[Json]
+
+pub fn find_first_resource(Array[Json], String, String) -> Json?
+
+pub fn find_or_create_resource(Array[Json], String, String) -> (Array[Json], Json)
+
+pub fn format_optional(String?) -> String
+
+pub fn goal_summary(Json) -> CommonResourceSummary
+
+pub fn graph_incoming_edges(BundleGraph, String) -> Array[GraphEdge]
+
+pub fn graph_outgoing_edges(BundleGraph, String) -> Array[GraphEdge]
+
+pub fn group_observations_by_code(Array[Json]) -> Map[String, Array[Json]]
+
+pub fn group_resources_by_type(Array[Json]) -> Map[String, Array[Json]]
+
+pub fn has_identifier(Json, String, String) -> Bool
+
+pub fn identifier_count(Json) -> Int
+
+pub fn identifier_system(Json, Int) -> String?
+
+pub fn identifier_type_text(Json, Int) -> String?
+
+pub fn identifier_value(Json, Int) -> String?
+
+pub fn immunization_summary(Json) -> ImmunizationSummary
+
+pub fn invalid_date_inputs(Array[String]) -> Array[String]
+
+pub fn is_known_resource_type(String) -> Bool
+
 pub fn is_supported_resource(Json) -> Bool
 
 pub fn is_valid(Json, version? : FhirVersion) -> Bool
 
+pub fn is_valid_fhir_date(String) -> Bool
+
+pub fn is_valid_fhir_datetime(String) -> Bool
+
+pub fn issue_fingerprints(ValidationReport) -> Array[String]
+
+pub fn issue_list_text(Array[Issue]) -> String
+
+pub fn issue_sort_key(Issue) -> String
+
+pub fn join_resource_labels(Array[Json], String) -> String
+
+pub fn json_array_length(Json) -> Int
+
+pub fn json_contains_text(Json, String) -> Bool
+
+pub fn json_depth(Json) -> Int
+
+pub fn json_depth_at_least(Json, Int) -> Bool
+
+pub fn json_equal_canonical(Json, Json) -> Bool
+
+pub fn json_flatten_scalars(Json) -> Array[String]
+
+pub fn json_has_key(Json, String) -> Bool
+
+pub fn json_key_count(Json) -> Int
+
+pub fn json_leaf_paths(Json) -> Array[String]
+
+pub fn json_merge(Json, Json) -> Json
+
+pub fn json_object_keys(Json) -> Array[String]
+
 pub fn json_pointer(Json, String) -> Json?
+
+pub fn json_scalar_count(Json) -> Int
+
+pub fn json_size(Json) -> Int
+
+pub fn json_without(Json, Array[String]) -> Json
+
+pub fn known_resource_types() -> Array[String]
+
+pub fn list_summary(Json) -> CommonResourceSummary
+
+pub fn mask_identifier(String, visible? : Int) -> String
+
+pub fn measurement_summary(Array[Json]) -> String
+
+pub fn measurement_values_in_range(Array[Json], Double, Double) -> Array[Json]
+
+pub fn measurement_values_with_unit(Array[Json], String) -> Array[Json]
+
+pub fn medication_request_summary(Json) -> MedicationRequestSummary
 
 pub fn medication_summary(Json) -> MedicationSummary
 
+pub fn merge_validation_reports(Array[ValidationReport]) -> ValidationReport
+
+pub fn metadata_category_name(ResourceCategory) -> String
+
+pub fn metadata_summary(String) -> String
+
+pub fn metrics_average_depth(Array[Json]) -> Int
+
+pub fn metrics_csv(Array[Json]) -> String
+
+pub fn metrics_max_payload(Array[Json]) -> Int
+
+pub fn metrics_payload_bytes(Array[Json]) -> Int
+
+pub fn metrics_summary(Array[Json]) -> String
+
+pub fn metrics_text(Json) -> String
+
+pub fn metrics_valid_percent(Array[Json]) -> Int
+
+pub fn narrative_character_count(String) -> Int
+
+pub fn narrative_contains(String, String) -> Bool
+
+pub fn narrative_coverage(Array[Json]) -> Int
+
+pub fn narrative_plain_text(String) -> String
+
+pub fn narrative_preview(String, Int) -> String
+
+pub fn narrative_text(Json) -> String?
+
+pub fn narrative_word_count(String) -> Int
+
+pub fn ndjson_errors(String, version? : FhirVersion) -> Array[NdjsonLineError]
+
+pub fn ndjson_issue_count(NdjsonReport, String) -> Int
+
+pub fn ndjson_partition(NdjsonReport) -> (Array[Json], Array[NdjsonLineError])
+
+pub fn ndjson_resources(String, version? : FhirVersion) -> Array[Json]
+
+pub fn ndjson_statistics(NdjsonReport) -> NdjsonStatistics
+
+pub fn ndjson_summary(NdjsonReport) -> String
+
+pub fn ndjson_type_count(NdjsonReport, String) -> Int
+
+pub fn normalise_quantity(Json) -> Json
+
+pub fn normalize_narrative(String) -> String
+
+pub fn number_at(Json, String) -> Double?
+
+pub fn observation_code_count(Array[Json], String) -> Int
+
 pub fn observation_csv_row(Json) -> String
+
+pub fn observation_csv_row_safe(Json) -> String
+
+pub fn observation_measurement(Json) -> Double?
+
+pub fn observation_measurement_range(Array[Json]) -> (Double, Double)?
+
+pub fn observation_measurement_stats(Array[Json]) -> MeasurementStats
+
+pub fn observation_measurement_unit(Json) -> String
+
+pub fn observation_point(Json) -> ObservationPoint
+
+pub fn observation_points(Array[Json]) -> Array[ObservationPoint]
+
+pub fn observation_points_csv(Array[ObservationPoint]) -> String
+
+pub fn observation_series(Array[Json], String) -> Array[ObservationPoint]
+
+pub fn observation_series_max(Array[ObservationPoint]) -> Double?
+
+pub fn observation_series_mean(Array[ObservationPoint]) -> Double?
+
+pub fn observation_series_median(Array[ObservationPoint]) -> Double?
+
+pub fn observation_series_min(Array[ObservationPoint]) -> Double?
+
+pub fn observation_series_summary(Array[ObservationPoint]) -> String
+
+pub fn observation_series_unit(Array[ObservationPoint]) -> String?
+
+pub fn observation_series_values(Array[ObservationPoint]) -> Array[Double]
 
 pub fn observation_summary(Json) -> ObservationSummary
 
+pub fn observation_units(Array[Json]) -> Map[String, Int]
+
+pub fn observation_values(Array[Json]) -> Array[Double]
+
+pub fn operation_exit_status(OperationOutcome) -> Int
+
+pub fn operation_normalize(Json) -> OperationResult
+
+pub fn operation_outcome(ValidationReport) -> OperationOutcome
+
+pub fn operation_outcome_codes(OperationOutcome) -> Array[String]
+
+pub fn operation_outcome_error_count(OperationOutcome) -> Int
+
+pub fn operation_outcome_from_text(String) -> OperationOutcome
+
+pub fn operation_outcome_has_code(OperationOutcome, String) -> Bool
+
+pub fn operation_outcome_is_success(OperationOutcome) -> Bool
+
+pub fn operation_outcome_json(OperationOutcome) -> Json
+
+pub fn operation_outcome_locations(OperationOutcome) -> Array[String]
+
+pub fn operation_outcome_text(OperationOutcome) -> String
+
+pub fn operation_outcome_warning_count(OperationOutcome) -> Int
+
+pub fn operation_redact(Json, PrivacyPolicy) -> OperationResult
+
+pub fn operation_validate(Json, profile? : Profile) -> OperationResult
+
 pub fn parse_json(String) -> Json?
+
+pub fn path_contains(Json, String, String) -> Bool
+
+pub fn path_count_at_least(Json, String, Int) -> Bool
+
+pub fn path_equals(Json, String, String) -> Bool
+
+pub fn path_exists_all(Json, Array[String]) -> Bool
+
+pub fn path_exists_any(Json, Array[String]) -> Bool
+
+pub fn path_is_empty(Json, String) -> Bool
+
+pub fn path_is_singleton(Json, String) -> Bool
+
+pub fn path_numeric_max(Json, String) -> Double?
+
+pub fn path_numeric_min(Json, String) -> Double?
+
+pub fn path_numeric_sum(Json, String) -> Double
+
+pub fn path_numeric_values(Json, String) -> Array[Double]
+
+pub fn path_reference_targets(Json, String) -> Array[String]
+
+pub fn path_resource_types(Json, String) -> Array[String]
+
+pub fn path_select_arrays(Json, String) -> Array[Json]
+
+pub fn path_select_objects(Json, String) -> Array[Json]
+
+pub fn path_string_join(Json, String, String) -> String
+
+pub fn path_summary(Json, String) -> String
 
 pub fn patient_summary(Json) -> PatientSummary
 
+pub fn period_contains(String, String, String) -> Bool
+
+pub fn period_is_valid(String, String) -> Bool
+
+pub fn period_overlap(String, String, String, String) -> Bool
+
+pub fn policy_allows(PrivacyPolicy, String) -> Bool
+
+pub fn pretty_json(Json) -> String
+
+pub fn privacy_audit(Json, PrivacyPolicy) -> PrivacyAudit
+
+pub fn privacy_summary(Json, PrivacyPolicy) -> String
+
+pub fn procedure_summary(Json) -> ProcedureSummary
+
+pub fn process_ndjson(String, ProcessingOptions) -> ProcessingResult
+
+pub fn process_resources(Array[Json], ProcessingOptions) -> ProcessingResult
+
+pub fn processing_error_count(ProcessingResult) -> Int
+
+pub fn processing_export(ProcessingResult, ExportOptions) -> String
+
+pub fn processing_is_successful(ProcessingResult) -> Bool
+
+pub fn processing_redacted_export(ProcessingResult, ExportOptions) -> String
+
+pub fn processing_summary(ProcessingResult) -> String
+
+pub fn processing_warning_count(ProcessingResult) -> Int
+
+pub fn profile_is_valid(Json, Profile) -> Bool
+
+pub fn profile_issue_count(Json, Profile) -> Int
+
+pub fn profile_rule_allowed(String, Array[String]) -> ProfileRule
+
+pub fn profile_rule_min_items(String, Int) -> ProfileRule
+
+pub fn profile_rule_required(String) -> ProfileRule
+
+pub fn profile_rule_type(String, String) -> ProfileRule
+
+pub fn provenance_actor_count(Json) -> Int
+
+pub fn provenance_actors(Json) -> Array[ProvenanceActor]
+
+pub fn provenance_has_actor(Json, String) -> Bool
+
+pub fn provenance_is_complete(Json) -> Bool
+
+pub fn provenance_summary(Json) -> CommonResourceSummary
+
+pub fn provenance_summary_text(Json) -> String
+
+pub fn provenance_target_count(Json) -> Int
+
+pub fn provenance_targets(Json) -> Array[String]
+
+pub fn pseudonymize_identifier(String, scope? : String) -> String
+
+pub fn pseudonymize_resource_id(Json) -> Json
+
+pub fn quality_dashboard_rows(Array[Json]) -> Array[String]
+
+pub fn quality_finding_count(Json) -> Int
+
+pub fn quality_findings(Json) -> Array[QualityFinding]
+
+pub fn quality_score(Json) -> Int
+
+pub fn quality_status(Json) -> String
+
+pub fn quantity_is_reasonable(Json, String, Double, Double) -> Bool
+
+pub fn quantity_system(Json, String) -> String?
+
+pub fn quantity_unit(Json, String) -> String?
+
+pub fn query_all_strings(Json, Array[String]) -> Map[String, Array[String]]
+
+pub fn query_count(Json, String) -> Int
+
+pub fn query_exists(Json, String) -> Bool
+
+pub fn query_first(Json, String) -> Json?
+
+pub fn query_json_text(String, String) -> QueryResult?
+
+pub fn query_many(Json, Array[String]) -> Array[QueryResult]
+
+pub fn query_many_csv(Json, Array[String]) -> String
+
+pub fn query_many_table(Json, Array[String]) -> Array[String]
+
+pub fn query_paths(Json, String) -> Array[(String, Json)]
+
+pub fn query_resource_references(Json) -> Array[String]
+
+pub fn query_resource_summary(Json, Array[String]) -> String
+
+pub fn query_result(Json, String) -> QueryResult
+
+pub fn query_result_csv(QueryResult) -> String
+
+pub fn query_result_first_text(QueryResult) -> String
+
+pub fn query_result_has_value(QueryResult, String) -> Bool
+
+pub fn query_result_is_scalar(QueryResult) -> Bool
+
+pub fn query_result_json(QueryResult) -> Json
+
+pub fn query_result_summary(QueryResult) -> String
+
+pub fn query_result_text(QueryResult) -> String
+
+pub fn query_strings(Json, String) -> Array[String]
+
+pub fn query_text(Json, String, fallback? : String) -> String
+
+pub fn query_values(Json, String) -> Array[Json]
+
+pub fn questionnaire_summary(Json) -> CommonResourceSummary
+
+pub fn redact_by_policy(Json, PrivacyPolicy) -> Json
+
+pub fn redact_fields(Json, Array[String]) -> Json
+
+pub fn redact_json_text(String, PrivacyPolicy) -> String?
+
+pub fn redact_standard_sensitive_fields(Json) -> Json
+
+pub fn reference_graph_edges(Array[Json]) -> Array[GraphEdge]
+
+pub fn reference_is_well_formed(String) -> Bool
+
+pub fn reference_resolution_summary(Array[Json]) -> String
+
+pub fn reference_resource_id(String) -> String?
+
+pub fn reference_resource_type(String) -> String?
+
+pub fn reference_summary_text(Json) -> String
+
+pub fn reference_target_counts(Array[Json]) -> Map[String, Int]
+
+pub fn report_error_count(ValidationReport) -> Int
+
+pub fn report_info_count(ValidationReport) -> Int
+
+pub fn report_is_clean(ValidationReport) -> Bool
+
+pub fn report_is_warning_only(ValidationReport) -> Bool
+
+pub fn report_issue_text(ValidationReport) -> String
+
+pub fn report_json(ValidationReport) -> Json
+
+pub fn report_text(ValidationReport) -> String
+
+pub fn report_warning_count(ValidationReport) -> Int
+
+pub fn resolve_reference(String, Array[Json]) -> ReferenceResolution
+
+pub fn resolve_references(Json, Array[Json]) -> Array[ReferenceResolution]
+
+pub fn resolved_references(Json, Array[Json]) -> Array[Json]
+
+pub fn resource_activity_references(Json) -> Array[String]
+
+pub fn resource_category(String) -> ResourceCategory
+
+pub fn resource_code_system(Json, String, String) -> Bool
+
+pub fn resource_code_text(Json) -> String?
+
+pub fn resource_codes(Json, String) -> Array[String]
+
+pub fn resource_codings(Json, String) -> Array[CodingRecord]
+
+pub fn resource_contains_sensitive_data(Json, PrivacyPolicy) -> Bool
+
+pub fn resource_csv_header() -> String
+
+pub fn resource_csv_text(String) -> String?
+
+pub fn resource_date(Json) -> String?
+
+pub fn resource_date_fields(String) -> Array[String]
+
+pub fn resource_diff(Json, Json) -> ResourceDiff
+
+pub fn resource_diff_count(Json, Json) -> Int
+
+pub fn resource_display_name(Json) -> String
+
+pub fn resource_field_names(Json) -> Array[String]
+
+pub fn resource_has_code(Json, String, String) -> Bool
+
+pub fn resource_has_field(Json, String) -> Bool
+
+pub fn resource_has_id(Json) -> Bool
+
+pub fn resource_has_narrative(Json) -> Bool
+
+pub fn resource_id_or(Json, String) -> String
+
+pub fn resource_identifiers(Json) -> Array[(String, String)]
+
+pub fn resource_index(Array[Json]) -> Map[String, Json]
+
+pub fn resource_issue_codes(Json) -> Array[String]
+
+pub fn resource_key(Json) -> String
+
 pub fn resource_kind(Json) -> ResourceKind
+
+pub fn resource_kind_category_text(Json) -> String
+
+pub fn resource_kind_is_clinical(Json) -> Bool
+
+pub fn resource_kind_is_exchange(Json) -> Bool
+
+pub fn resource_kind_is_workflow(Json) -> Bool
+
+pub fn resource_kind_names(Array[Json]) -> Array[String]
+
+pub fn resource_kind_text(String) -> String
+
+pub fn resource_label(Json) -> String
+
+pub fn resource_labels(Array[Json]) -> Array[String]
+
+pub fn resource_match_count(Json, Array[String]) -> Int
+
+pub fn resource_matches_all(Json, Array[String]) -> Bool
+
+pub fn resource_metadata(String) -> ResourceMetadata
+
+pub fn resource_metrics(Json) -> ResourceMetrics
+
+pub fn resource_narrative(Json) -> String?
+
+pub fn resource_projection(Json, Array[String]) -> Json
+
+pub fn resource_quality_is_valid(Json) -> Bool
+
+pub fn resource_quality_issues(Json) -> Array[Issue]
+
+pub fn resource_quality_report(Json) -> ValidationReport
+
+pub fn resource_quality_text(String) -> String
+
+pub fn resource_reference_fields(String) -> Array[String]
+
+pub fn resource_remove_field(Json, String) -> Json
+
+pub fn resource_required_fields(String) -> Array[String]
+
+pub fn resource_set_field(Json, String, Json) -> Json
+
+pub fn resource_status(Json) -> String?
+
+pub fn resource_status_or(Json, String) -> String
+
+pub fn resource_subject(Json) -> String?
+
+pub fn resource_summary_line(Json) -> String
+
+pub fn resource_table_row(Json) -> String
+
+pub fn resource_table_rows(Array[Json]) -> Array[String]
 
 pub fn resource_type(Json) -> String?
 
+pub fn resource_type_count(Array[Json], String) -> Int
+
+pub fn resource_type_or(Json, String) -> String
+
+pub fn resource_version_warning(Json, FhirVersion) -> Issue?
+
+pub fn resources_referencing(Array[Json], String) -> Array[Json]
+
+pub fn resources_with_narrative(Array[Json]) -> Array[Json]
+
+pub fn run_benchmark_bundle(Int) -> Int
+
+pub fn run_benchmark_ndjson(Int) -> Int
+
+pub fn run_benchmark_search(Int) -> Int
+
+pub fn run_benchmark_validation(Int) -> Int
+
+pub fn safe_parse(String) -> Json?
+
+pub fn safe_parse_many(Array[String]) -> Array[Json]
+
+pub fn schema_field_count(ResourceSchema) -> Int
+
+pub fn schema_field_names(ResourceSchema) -> Array[String]
+
+pub fn schema_for(String, version? : FhirVersion) -> ResourceSchema
+
+pub fn schema_for_resource(Json) -> ResourceSchema
+
+pub fn schema_is_valid(Json, ResourceSchema) -> Bool
+
+pub fn schema_registry() -> Map[String, ResourceSchema]
+
+pub fn schema_summary(ResourceSchema) -> String
+
+pub fn schema_text(String) -> String
+
+pub fn schema_validate(Json, ResourceSchema) -> Array[Issue]
+
+pub fn schema_validate_resource(Json) -> Array[Issue]
+
+pub fn search_by_field(Array[Json], String, String) -> Array[Json]
+
+pub fn search_by_id(Array[Json], String) -> Array[Json]
+
+pub fn search_by_reference(Array[Json], String) -> Array[Json]
+
+pub fn search_by_status(Array[Json], String) -> Array[Json]
+
+pub fn search_by_type(Array[Json], String) -> Array[Json]
+
+pub fn search_by_type_and_status(Array[Json], String, String) -> Array[Json]
+
+pub fn search_hits(Array[Json], String) -> Array[SearchHit]
+
+pub fn search_resource(Json, String) -> Bool
+
+pub fn search_resources(Array[Json], String) -> Array[Json]
+
+pub fn search_summary(Array[Json], String) -> String
+
+pub fn select_resources(Array[Json], Array[String]) -> Array[Json]
+
+pub fn sensitive_fields_in_resource(Json, PrivacyPolicy) -> Array[String]
+
+pub fn service_request_summary(Json) -> CommonResourceSummary
+
+pub fn service_validate_json(FhirService, String) -> OperationResult
+
+pub fn service_validate_text(FhirService, String) -> String
+
+pub fn severity_rank(String) -> Int
+
+pub fn sort_issues(Array[Issue]) -> Array[Issue]
+
+pub fn sort_resources_by_id(Array[Json]) -> Array[Json]
+
+pub fn sort_resources_by_type(Array[Json]) -> Array[Json]
+
+pub fn sorted_report(ValidationReport) -> ValidationReport
+
+pub fn specimen_summary(Json) -> CommonResourceSummary
+
+pub fn strip_html_tags(String) -> String
+
+pub fn summaries_for_resources(Array[Json]) -> Array[CommonResourceSummary]
+
+pub fn summarize_json_text(String) -> String
+
+pub fn summary_csv(Array[Json]) -> String
+
+pub fn summary_csv_header() -> String
+
+pub fn summary_display_lines(Array[Json]) -> Array[String]
+
+pub fn supported_kind_name(Json) -> String
+
+pub fn supported_resource_text() -> String
+
+pub fn terminology_all_codes_valid(ValueSet, Array[String]) -> Bool
+
+pub fn terminology_catalog_summary(TerminologyCatalog) -> String
+
+pub fn terminology_codes(ValueSet) -> Array[String]
+
+pub fn terminology_contains(ValueSet, String) -> Bool
+
+pub fn terminology_issue_summary(Array[TerminologyIssue]) -> String
+
+pub fn terminology_missing_codes(ValueSet, Array[String]) -> Array[String]
+
+pub fn terminology_status_is_valid(String, String) -> Bool
+
+pub fn terminology_text(String, String) -> String
+
+pub fn unique_resource_ids(Array[Json]) -> Array[String]
+
+pub fn unresolved_references(Json, Array[Json]) -> Array[String]
+
+pub fn update_resource_id(Json, String) -> Json
+
+pub fn update_resource_status(Json, String) -> Json
+
+pub fn upsert_resource(Array[Json], Json) -> Array[Json]
+
+pub fn valid_json_count(Array[String]) -> Int
+
+pub fn validate_batch(Array[Json]) -> Array[ValidationReport]
+
+pub fn validate_bundle_structure(Json) -> BundleValidation
+
+pub fn validate_code(String, String?, String, ValueSet) -> TerminologyIssue?
+
+pub fn validate_codeable_concept(Json, String, ValueSet) -> Array[TerminologyIssue]
+
+pub fn validate_coding_array(Json, String) -> Array[Issue]
+
+pub fn validate_constraints(Json, ConstraintSet) -> Array[Issue]
+
+pub fn validate_date_field(Json, String, datetime? : Bool) -> Array[Issue]
+
+pub fn validate_date_fields(Json, Array[String]) -> Array[Issue]
+
+pub fn validate_identifier_array(Json, path? : String) -> Array[Issue]
+
+pub fn validate_json_text(String) -> ValidationReport?
+
+pub fn validate_json_text_strict(String) -> OperationOutcome
+
+pub fn validate_ndjson(String, version? : FhirVersion) -> NdjsonReport
+
+pub fn validate_ndjson_lines(Array[String], version? : FhirVersion) -> NdjsonReport
+
+pub fn validate_period(Json, String) -> Array[Issue]
+
+pub fn validate_profile_only(Json, Profile) -> ValidationReport
+
+pub fn validate_reference(Json, String) -> Array[Issue]
+
+pub fn validate_reference_fields(Json, Array[String]) -> Array[Issue]
+
+pub fn validate_reference_targets(Json, Array[Json]) -> Array[Issue]
+
 pub fn validate_resource(Json, version? : FhirVersion) -> ValidationReport
+
+pub fn validate_temporal_consistency(Json) -> Array[Issue]
+
+pub fn validate_with_profile(Json, Profile, version? : FhirVersion) -> ValidationReport
+
+pub fn validation_mode_name(ValidationMode) -> String
+
+pub fn validation_mode_options(ValidationMode) -> ProcessingOptions
+
+pub fn validation_mode_rejects_warnings(ValidationMode) -> Bool
+
+pub fn validation_mode_summary(ValidationMode, FhirVersion) -> String
+
+pub fn version_name(FhirVersion) -> String
+
+pub fn version_supports(FhirVersion, String) -> Bool
+
+pub fn versioned_validate(Json, FhirVersion) -> ValidationReport
 
 // Errors
 
 // Types and methods
+pub(all) struct AllergyIntoleranceSummary {
+  id : String?
+  clinical_status : String?
+  verification_status : String?
+  code_text : String?
+  patient : String?
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct BatchQuality {
+  total : Int
+  valid : Int
+  invalid : Int
+  warning_resources : Int
+  duplicate_ids : Int
+  empty_resources : Int
+  type_counts : Map[String, Int]
+  issue_counts : Map[String, Int]
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct BenchmarkCase {
+  name : String
+  records : Int
+  payload_bytes : Int
+  operation : String
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct BenchmarkObservation {
+  name : String
+  input_size : Int
+  output_size : Int
+  valid_count : Int
+  elapsed_units : Int
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct BulkChunk {
+  index : Int
+  resources : Array[Json]
+  first_id : String?
+  last_id : String?
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct BundleAnalytics {
+  total_entries : Int
+  resource_count : Int
+  unique_ids : Int
+  duplicate_ids : Array[String]
+  type_counts : Map[String, Int]
+  references : Array[String]
+  broken_references : Array[String]
+} derive(Eq, ToJson, @debug.Debug)
+
 pub(all) struct BundleEntry {
   full_url : String?
   resource_type : String
   id : String?
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct BundleGraph {
+  nodes : Int
+  edges : Int
+  dangling : Int
+  node_keys : Array[String]
+  edge_list : Array[GraphEdge]
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct BundleValidation {
+  bundle_type : String
+  entry_count : Int
+  resource_count : Int
+  missing_resource_entries : Int
+  duplicate_ids : Int
+  unsupported_resources : Int
+  issues : Array[Issue]
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct CarePlanSummary {
+  id : String?
+  status : String?
+  intent : String?
+  title : String?
+  subject : String?
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct CodeRule {
+  system : String?
+  code : String
+  display : String?
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct CodingRecord {
+  system : String?
+  code : String?
+  display : String?
+  version : String?
+  user_selected : Bool?
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct CommonResourceSummary {
+  resource_type : String
+  id : String?
+  status : String?
+  display : String?
+  subject : String?
+  date : String?
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct ConditionSummary {
+  id : String?
+  code_text : String?
+  clinical_status : String?
+  subject : String?
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) enum ConstraintKind {
+  Required
+  Type
+  Date
+  Reference
+  NonEmpty
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct ConstraintSet {
+  name : String
+  constraints : Array[ResourceConstraint]
+} derive(Eq, ToJson, @debug.Debug)
+pub fn ConstraintSet::new(String, Array[ResourceConstraint]) -> Self
+
+pub(all) enum DatePrecision {
+  Year
+  Month
+  Day
+  DateTime
+  Unknown
 } derive(Eq, ToJson, @debug.Debug)
 
 pub(all) struct DiagnosticReportSummary {
@@ -66,11 +1213,63 @@ pub(all) struct EncounterSummary {
   subject : String?
 } derive(Eq, ToJson, @debug.Debug)
 
+pub(all) enum ExportFormat {
+  Json
+  Ndjson
+  Csv
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct ExportOptions {
+  format : ExportFormat
+  include_header : Bool
+  canonical : Bool
+  redact : Bool
+} derive(Eq, ToJson, @debug.Debug)
+pub fn ExportOptions::csv() -> Self
+pub fn ExportOptions::json() -> Self
+pub fn ExportOptions::ndjson() -> Self
+
+pub(all) struct FhirService {
+  options : ProcessingOptions
+  catalog : TerminologyCatalog
+} derive(Eq, ToJson, @debug.Debug)
+pub fn FhirService::bundle_report(Self, Json) -> BundleValidation
+pub fn FhirService::default() -> Self
+pub fn FhirService::export_data(Self, Array[Json], ExportOptions) -> String
+pub fn FhirService::graph(Self, Json) -> BundleGraph
+pub fn FhirService::metadata(Self, String) -> ResourceMetadata
+pub fn FhirService::new(ProcessingOptions) -> Self
+pub fn FhirService::quality(Self, Array[Json]) -> BatchQuality
+pub fn FhirService::query(Self, Json, String) -> Array[Json]
+pub fn FhirService::redact(Self, Json, PrivacyPolicy) -> Json
+pub fn FhirService::schema(Self, String) -> ResourceSchema
+pub fn FhirService::search(Self, Array[Json], String) -> Array[Json]
+pub fn FhirService::strict() -> Self
+pub fn FhirService::summarize(Self, Array[Json]) -> String
+pub fn FhirService::terminology_contains(Self, String, String) -> Bool
+pub fn FhirService::validate(Self, Json) -> ValidationReport
+pub fn FhirService::validate_many(Self, Array[Json]) -> ProcessingResult
+pub fn FhirService::validate_ndjson(Self, String) -> ProcessingResult
+
 pub(all) enum FhirVersion {
   R4
   R5
 } derive(Eq, ToJson, @debug.Debug)
 pub fn FhirVersion::to_string(Self) -> String
+
+pub(all) struct GraphEdge {
+  from : String
+  to : String
+  reference : String
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct ImmunizationSummary {
+  id : String?
+  status : String?
+  vaccine_text : String?
+  patient : String?
+  occurrence : String?
+} derive(Eq, ToJson, @debug.Debug)
 
 pub(all) struct Issue {
   path : String
@@ -79,11 +1278,64 @@ pub(all) struct Issue {
   severity : String
 } derive(Eq, ToJson, @debug.Debug)
 
+pub(all) struct MeasurementStats {
+  count : Int
+  missing : Int
+  minimum : Double
+  maximum : Double
+  sum : Double
+  mean : Double
+  units : Map[String, Int]
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct MedicationRequestSummary {
+  id : String?
+  status : String?
+  intent : String?
+  medication_text : String?
+  subject : String?
+} derive(Eq, ToJson, @debug.Debug)
+
 pub(all) struct MedicationSummary {
   id : String?
   code_text : String?
   status : String?
   form_text : String?
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct NdjsonLineError {
+  line : Int
+  message : String
+  raw : String
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct NdjsonReport {
+  total_lines : Int
+  blank_lines : Int
+  valid_lines : Int
+  invalid_lines : Int
+  resources : Array[Json]
+  errors : Array[NdjsonLineError]
+} derive(Eq, ToJson, @debug.Debug)
+pub fn NdjsonReport::is_clean(Self) -> Bool
+pub fn NdjsonReport::success_rate(Self) -> Int
+
+pub(all) struct NdjsonStatistics {
+  resource_count : Int
+  valid_count : Int
+  invalid_count : Int
+  blank_count : Int
+  type_counts : Map[String, Int]
+  issue_counts : Map[String, Int]
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct ObservationPoint {
+  id : String?
+  code : String?
+  subject : String?
+  issued : String?
+  value : Double?
+  unit : String?
 } derive(Eq, ToJson, @debug.Debug)
 
 pub(all) struct ObservationSummary {
@@ -95,6 +1347,24 @@ pub(all) struct ObservationSummary {
   issued : String?
 } derive(Eq, ToJson, @debug.Debug)
 
+pub(all) struct OperationOutcome {
+  resource_type : String
+  issues : Array[OperationOutcomeIssue]
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct OperationOutcomeIssue {
+  severity : String
+  code : String
+  diagnostics : String
+  location : Array[String]
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct OperationResult {
+  success : Bool
+  resource : Json
+  issues : Array[Issue]
+} derive(Eq, ToJson, @debug.Debug)
+
 pub(all) struct PatientSummary {
   id : String?
   display_name : String?
@@ -102,14 +1372,243 @@ pub(all) struct PatientSummary {
   birth_date : String?
 } derive(Eq, ToJson, @debug.Debug)
 
+pub(all) struct PrivacyAudit {
+  resource_type : String
+  found_sensitive_fields : Array[String]
+  removed_fields : Array[String]
+  retained_fields : Array[String]
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct PrivacyPolicy {
+  name : String
+  sensitive_fields : Array[String]
+  restricted_fields : Array[String]
+  preserve_resource_type : Bool
+  preserve_id : Bool
+} derive(Eq, ToJson, @debug.Debug)
+pub fn PrivacyPolicy::field_count(Self) -> Int
+pub fn PrivacyPolicy::name(Self) -> String
+pub fn PrivacyPolicy::standard() -> Self
+pub fn PrivacyPolicy::strict() -> Self
+
+pub(all) struct ProcedureSummary {
+  id : String?
+  status : String?
+  code_text : String?
+  subject : String?
+  performed : String?
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct ProcessingOptions {
+  version : FhirVersion
+  profile : Profile?
+  privacy_policy : PrivacyPolicy?
+  reject_warnings : Bool
+} derive(Eq, ToJson, @debug.Debug)
+pub fn ProcessingOptions::default() -> Self
+pub fn ProcessingOptions::strict() -> Self
+
+pub(all) struct ProcessingResult {
+  reports : Array[ValidationReport]
+  accepted : Array[Json]
+  rejected : Array[Json]
+  redacted : Array[Json]
+  quality : BatchQuality
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct Profile {
+  name : String
+  rules : Array[ProfileRule]
+} derive(Eq, ToJson, @debug.Debug)
+pub fn Profile::name(Self) -> String
+pub fn Profile::new(String, Array[ProfileRule]) -> Self
+pub fn Profile::rule_count(Self) -> Int
+
+pub(all) enum ProfileRule {
+  Required(String)
+  Type(String, String)
+  Allowed(String, Array[String])
+  MinItems(String, Int)
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct ProvenanceActor {
+  role : String?
+  reference : String?
+  display : String?
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct QualityFinding {
+  rule : String
+  severity : String
+  path : String
+  message : String
+  score : Int
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct QueryResult {
+  expression : String
+  values : Array[Json]
+  strings : Array[String]
+  count : Int
+  empty : Bool
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct ReferenceResolution {
+  reference : String
+  target_type : String?
+  target_id : String?
+  resolved : Bool
+  target : Json?
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct ReportDelta {
+  added : Int
+  removed : Int
+  unchanged : Int
+  added_codes : Array[String]
+  removed_codes : Array[String]
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) enum ResourceCategory {
+  Clinical
+  Administrative
+  Workflow
+  Infrastructure
+  Exchange
+  Unknown
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct ResourceConstraint {
+  path : String
+  kind : ConstraintKind
+  expected : String
+  message : String
+} derive(Eq, ToJson, @debug.Debug)
+pub fn ResourceConstraint::date(String, message? : String) -> Self
+pub fn ResourceConstraint::non_empty(String, message? : String) -> Self
+pub fn ResourceConstraint::reference(String, message? : String) -> Self
+pub fn ResourceConstraint::required(String, message? : String) -> Self
+pub fn ResourceConstraint::type_is(String, String, message? : String) -> Self
+
+pub(all) struct ResourceDiff {
+  added_fields : Array[String]
+  removed_fields : Array[String]
+  changed_fields : Array[String]
+} derive(Eq, ToJson, @debug.Debug)
+
 pub(all) enum ResourceKind {
   Patient
   Observation
   Medication
+  MedicationRequest
   DiagnosticReport
   Encounter
+  Condition
+  Procedure
+  Immunization
+  AllergyIntolerance
+  CarePlan
+  Practitioner
+  Organization
+  Location
+  ServiceRequest
+  Goal
+  CareTeam
+  Device
+  Specimen
+  Questionnaire
+  List
+  Composition
+  DocumentReference
+  Provenance
+  AuditEvent
   Bundle
   Other(String)
+} derive(Eq, ToJson, @debug.Debug)
+pub fn ResourceKind::to_string(Self) -> String
+
+pub(all) struct ResourceMetadata {
+  resource_type : String
+  category : ResourceCategory
+  supported : Bool
+  required_fields : Array[String]
+  reference_fields : Array[String]
+  date_fields : Array[String]
+  description : String
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct ResourceMetrics {
+  resource_type : String
+  id_present : Bool
+  field_count : Int
+  scalar_count : Int
+  depth : Int
+  payload_bytes : Int
+  valid : Bool
+  quality_score : Int
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct ResourcePatch {
+  path : String
+  value : Json?
+  remove : Bool
+} derive(Eq, ToJson, @debug.Debug)
+pub fn ResourcePatch::remove(String) -> Self
+pub fn ResourcePatch::set(String, Json) -> Self
+
+pub(all) struct ResourceSchema {
+  resource_type : String
+  version : FhirVersion
+  fields : Array[SchemaField]
+  summary : String
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct SchemaField {
+  path : String
+  type_name : String
+  required : Bool
+  minimum_items : Int
+  description : String
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct SearchHit {
+  index : Int
+  resource : Json
+  score : Int
+  matched_fields : Array[String]
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) enum Sensitivity {
+  Public
+  Internal
+  Sensitive
+  Restricted
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct TerminologyCatalog {
+  sets : Map[String, ValueSet]
+  aliases : Map[String, String]
+} derive(Eq, ToJson, @debug.Debug)
+pub fn TerminologyCatalog::add(Self, ValueSet) -> Unit
+pub fn TerminologyCatalog::add_alias(Self, String, String) -> Unit
+pub fn TerminologyCatalog::contains(Self, String, String) -> Bool
+pub fn TerminologyCatalog::get(Self, String) -> ValueSet?
+pub fn TerminologyCatalog::names(Self) -> Array[String]
+pub fn TerminologyCatalog::new() -> Self
+pub fn TerminologyCatalog::size(Self) -> Int
+pub fn TerminologyCatalog::validate(Self, String, String, String?, String) -> TerminologyIssue?
+
+pub(all) struct TerminologyIssue {
+  path : String
+  system : String?
+  code : String
+  message : String
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) enum ValidationMode {
+  Lenient
+  Standard
+  Strict
 } derive(Eq, ToJson, @debug.Debug)
 
 pub(all) struct ValidationReport {
@@ -118,7 +1617,15 @@ pub(all) struct ValidationReport {
   issues : Array[Issue]
 } derive(Eq, ToJson, @debug.Debug)
 
+pub(all) struct ValueSet {
+  name : String
+  system : String?
+  codes : Array[String]
+} derive(Eq, ToJson, @debug.Debug)
+pub fn ValueSet::contains(Self, String) -> Bool
+pub fn ValueSet::new(String, String?, Array[String]) -> Self
+pub fn ValueSet::size(Self) -> Int
+
 // Type aliases
 
 // Traits
-

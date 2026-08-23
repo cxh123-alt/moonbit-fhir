@@ -1,18 +1,18 @@
 # Roadmap
 
-## 0.1.x
+## Delivered in 0.2.0
 
-- Stabilize public validation report types.
-- Add more examples for the five initial resources.
-- Extend CLI output with JSON-formatted reports.
-- Add summary helpers for Bundle-wide extraction.
+- Stabilized public validation and issue-report types.
+- Added clinical, workflow, identity, and administrative resource families.
+- Added FHIRPath-inspired selection, NDJSON processing, profile hooks, terminology checks, Bundle analytics, metrics, privacy, and export utilities.
+- Added deterministic benchmark fixtures and boundary-focused regression tests.
 
-## 0.2.x
+## 0.3.x
 
-- Add FHIRPath-inspired field selection for common clinical workflows.
-- Add NDJSON line validation for bulk export data.
-- Add profile hooks so downstream users can register stricter local rules.
-- Add terminology adapters for value set checks.
+- Add generated resource metadata from official StructureDefinition snapshots.
+- Add R4/R5 difference tables for fields whose cardinality or value sets changed.
+- Add streaming conversion examples for analytics pipelines.
+- Add opt-in adapters for external terminology and profile services.
 
 ## 0.3.x
 

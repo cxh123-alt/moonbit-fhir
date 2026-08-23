@@ -1,0 +1,55 @@
+name: Publish package
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Setup MoonBit stable
+        shell: bash
+        run: |
+          curl -fsSL https://cli.moonbitlang.com/install/unix.sh | bash
+          echo "$HOME/.moon/bin" >> "$GITHUB_PATH"
+
+      - name: Verify package
+        shell: bash
+        run: |
+          moon version
+          moon fmt --check
+          moon info
+          git diff --exit-code
+          moon check --deny-warn
+          moon test --deny-warn
+          version="$(sed -n 's/^version = \"\(.*\)\"/\1/p' moon.mod)"
+          test -n "$version"
+          echo "PUBLISHED_TAG=v$version" >> "$GITHUB_ENV"
+
+      - name: Publish to Mooncakes
+        env:
+          MOONCAKES_TOKEN: ${{ secrets.MOONCAKES_TOKEN }}
+        shell: bash
+        run: |
+          test -n "$MOONCAKES_TOKEN"
+          mkdir -p "$HOME/.moon"
+          printf '%s' "$MOONCAKES_TOKEN" > "$HOME/.moon/credentials.json"
+          moon publish
+          rm -f "$HOME/.moon/credentials.json"
+
+      - name: Tag published version
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          gh api --method POST "repos/$GITHUB_REPOSITORY/git/refs" \
+            -f ref="refs/tags/$PUBLISHED_TAG" \
+            -f sha="$GITHUB_SHA"

@@ -9,8 +9,28 @@ pub(all) enum ResourceKind {
   Patient
   Observation
   Medication
+  MedicationRequest
   DiagnosticReport
   Encounter
+  Condition
+  Procedure
+  Immunization
+  AllergyIntolerance
+  CarePlan
+  Practitioner
+  Organization
+  Location
+  ServiceRequest
+  Goal
+  CareTeam
+  Device
+  Specimen
+  Questionnaire
+  List
+  Composition
+  DocumentReference
+  Provenance
+  AuditEvent
   Bundle
   Other(String)
 } derive(Debug, Eq, ToJson)
@@ -85,5 +105,38 @@ pub fn FhirVersion::to_string(self : FhirVersion) -> String {
   match self {
     R4 => "R4"
     R5 => "R5"
+  }
+}
+
+///|
+pub fn ResourceKind::to_string(self : ResourceKind) -> String {
+  match self {
+    Patient => "Patient"
+    Observation => "Observation"
+    Medication => "Medication"
+    MedicationRequest => "MedicationRequest"
+    DiagnosticReport => "DiagnosticReport"
+    Encounter => "Encounter"
+    Condition => "Condition"
+    Procedure => "Procedure"
+    Immunization => "Immunization"
+    AllergyIntolerance => "AllergyIntolerance"
+    CarePlan => "CarePlan"
+    Practitioner => "Practitioner"
+    Organization => "Organization"
+    Location => "Location"
+    ServiceRequest => "ServiceRequest"
+    Goal => "Goal"
+    CareTeam => "CareTeam"
+    Device => "Device"
+    Specimen => "Specimen"
+    Questionnaire => "Questionnaire"
+    List => "List"
+    Composition => "Composition"
+    DocumentReference => "DocumentReference"
+    Provenance => "Provenance"
+    AuditEvent => "AuditEvent"
+    Bundle => "Bundle"
+    Other(name) => name
   }
 }
