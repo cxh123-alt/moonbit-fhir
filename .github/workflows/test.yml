@@ -40,7 +40,29 @@ jobs:
           "$HOME/.moon/bin" | Out-File -FilePath $env:GITHUB_PATH -Append
 
       - name: Toolchain
-        run: moon version
+        run: |
+          moon version --all
+          moonc -v
+
+      - name: Enforce MoonBit compiler minimum (Unix)
+        if: runner.os != 'Windows'
+        shell: bash
+        run: |
+          version="$(moonc -v | sed -n 's/^v\([0-9.]*\).*/\1/p')"
+          test -n "$version"
+          required="1009"
+          actual="$(echo "$version" | awk -F. '{ printf "%d%02d%02d", $1, $2, $3 }')"
+          test "$actual" -ge "$required"
+
+      - name: Enforce MoonBit compiler minimum (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $line = moonc -v
+          $match = [regex]::Match($line, '^v(\d+)\.(\d+)\.(\d+)')
+          if (-not $match.Success) { throw "Unable to parse moonc version: $line" }
+          $actual = ([int]$match.Groups[1].Value * 10000) + [int]$match.Groups[2].Value * 100 + [int]$match.Groups[3].Value
+          if ($actual -lt 1009) { throw "moonc $($match.Value) is below required v0.10.9" }
 
       - name: Format
         run: moon fmt --check
@@ -77,7 +99,29 @@ jobs:
           echo "$HOME/.moon/bin" >> "$GITHUB_PATH"
 
       - name: Toolchain
-        run: moon version
+        run: |
+          moon version --all
+          moonc -v
+
+      - name: Enforce MoonBit compiler minimum (Unix)
+        if: runner.os != 'Windows'
+        shell: bash
+        run: |
+          version="$(moonc -v | sed -n 's/^v\([0-9.]*\).*/\1/p')"
+          test -n "$version"
+          required="1009"
+          actual="$(echo "$version" | awk -F. '{ printf "%d%02d%02d", $1, $2, $3 }')"
+          test "$actual" -ge "$required"
+
+      - name: Enforce MoonBit compiler minimum (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $line = moonc -v
+          $match = [regex]::Match($line, '^v(\d+)\.(\d+)\.(\d+)')
+          if (-not $match.Success) { throw "Unable to parse moonc version: $line" }
+          $actual = ([int]$match.Groups[1].Value * 10000) + ([int]$match.Groups[2].Value * 100) + [int]$match.Groups[3].Value
+          if ($actual -lt 1009) { throw "moonc $($match.Value) is below required v0.10.9" }
 
       - name: Native check
         run: moon check --target native --deny-warn

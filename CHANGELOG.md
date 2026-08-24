@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.1
+
+- Added integration coverage for text APIs, Bundle diagnostics, path operations, terminology, privacy, references, narratives, and service workflows.
+- Added stable MoonBit compiler checks requiring `moonc v0.10.9` or newer across the test and publish workflows.
+- Refreshed package metadata and documentation for the current FHIR interoperability surface.
+
 ## 0.2.0
 
 - Added validation and summaries for broader clinical, workflow, identity, and administrative resource families.

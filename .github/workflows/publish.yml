@@ -25,6 +25,11 @@ jobs:
         shell: bash
         run: |
           moon version
+          moonc -v
+          version="$(moonc -v | sed -n 's/^v\([0-9.]*\).*/\1/p')"
+          test -n "$version"
+          actual="$(echo "$version" | awk -F. '{ printf "%d%02d%02d", $1, $2, $3 }')"
+          test "$actual" -ge 1009
           moon fmt --check
           moon info
           git diff --exit-code

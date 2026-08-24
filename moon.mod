@@ -11,7 +11,7 @@
 
 name = "cxh123-alt/moonbit-fhir"
 
-version = "0.2.0"
+version = "0.2.1"
 
 readme = "README.mbt.md"
 
@@ -31,4 +31,4 @@ keywords = [
 
 preferred_target = "wasm-gc"
 
-description = "FHIR R4/R5 JSON validation, Bundle parsing, JSON Pointer query, summaries, and CLI tooling for MoonBit healthcare interoperability."
+description = "MoonBit-native FHIR R4/R5 JSON validation, profiles, NDJSON, Bundle analytics, terminology, privacy, and CLI workflows."

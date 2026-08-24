@@ -4,6 +4,10 @@
 
 The library is designed for ingestion gateways, ETL jobs, conformance checks, test fixtures, and interoperability services that need predictable behavior without pulling a full server stack into a MoonBit program.
 
+## Requirements
+
+MoonBit stable with `moonc v0.10.9` or newer. The repository CI checks this minimum before compiling the project.
+
 ## Core capabilities
 
 - FHIR R4/R5-style resource detection and validation for common clinical, workflow, identity, and administrative resources.
@@ -34,7 +38,7 @@ moon run cmd/main -- --json '{"resourceType":"Observation","status":"final","cod
 Use the library from another MoonBit module:
 
 ```bash
-moon add cxh123-alt/moonbit-fhir@0.2.0
+moon add cxh123-alt/moonbit-fhir@0.2.1
 ```
 
 Then import the package and call the validation, query, batch, and export APIs shown below.
