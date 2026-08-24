@@ -46,7 +46,10 @@ jobs:
         run: |
           test -n "$MOONCAKES_TOKEN"
           mkdir -p "$HOME/.moon"
-          printf '%s' "$MOONCAKES_TOKEN" > "$HOME/.moon/credentials.json"
+          username="$(sed -n 's/^name = "\([^/]*\)\/.*$/\1/p' moon.mod)"
+          test -n "$username"
+          jq -n --arg token "$MOONCAKES_TOKEN" --arg username "$username" \
+            '{token: $token, username: $username}' > "$HOME/.moon/credentials.json"
           moon publish
           rm -f "$HOME/.moon/credentials.json"
 
